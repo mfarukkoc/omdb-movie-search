@@ -1,0 +1,71 @@
+﻿body {
+    background-color: #FDB767;
+}
+
+.jumbotron {
+    background-color: #FC9827;
+}
+
+* {
+    color: #552E01;
+    box-sizing: border-box;
+}
+
+.jumbotron a {
+    color: #E84B0C;
+}
+
+.jumbotron > h1 {
+    color: #271807;
+}
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    height: 100%;
+}
+
+    .thumbnail, .thumbnail * {
+        background-color: #FC9827;
+        border-color: #FDB767;
+    }
+
+        .thumbnail:hover {
+            border-color: #271807;
+            border-width: 3px;
+            transition: 0.3s; text-decoration:none;
+        }
+.details-href:hover {
+    text-decoration:none;
+}
+
+.img-thumbnail {
+    background-color: #FDB767;
+    border-color: #FDB767;
+}
+
+.posters {
+    margin-top: 20px;
+}
+
+#goback {
+    color: #E84B0C;
+}
+
+.btn-primary {
+    background-color: #FC9827;
+    border-color: #FDB767;
+    color: #271807;
+}
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited,
+    .btn-primary:focus {
+        background-color: #271807;
+        border-color: #FC9827;
+        color: #FC9827;
+    }

@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/detailsStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="jumbotron">
+
+        <h1>Simple Movie Search</h1>
+        <p>This website uses <a href="https://www.omdbapi.com/" target="_blank">OMBdb API</a></p>
+    </div>
+    <div>
+        <a href="#" onclick="history.go(-1);" id="goback"><h3>Go Back</h3></a>
+        <div class="thumbnail col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <img class="img-fluid img-thumbnail" src="@ViewBag.details.Poster" onerror="this.src='/Content/notfound.png'" />
+            <div class="caption">
+                <h3>@ViewBag.details.Title ( @ViewBag.details.Year )</h3>
+                <p><b>Rated :</b> @ViewBag.details.Rated</p>
+                <p><b>Release Date :</b> @ViewBag.details.Released</p>
+                <p><b>Genre :</b> @ViewBag.details.Genre</p>
+                <p><b>Writer :</b> @ViewBag.details.Writer</p>
+                <p><b>Cast :</b> @ViewBag.details.Actors</p>
+                <p><b>Plot :</b> @ViewBag.details.Plot</p>
+                @if (0 < ViewBag.details.Ratings.Count)
+                {
+                    <p><b>IMDB :</b> @ViewBag.details.Ratings[0].Value</p>
+                }
+                @if (1 < ViewBag.details.Ratings.Count)
+                {
+                    <p><b>Rotten Tomatoes :</b> @ViewBag.details.Ratings[1].Value</p>
+
+                }
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

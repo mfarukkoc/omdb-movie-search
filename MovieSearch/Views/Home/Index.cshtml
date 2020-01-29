@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<system.web>
+    <globalization fileEncoding="utf-8" />
+</system.web>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Simple Movie Search</h1>
+        <p>This website uses <a href="https://www.omdbapi.com/" target="_blank">OMBdb API</a></p>
+    </div>
+    <div class="col-md-10 col-md-offset-1 ">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline" }))
+        {
+            <div class="form-group">
+                <label for="str">Title:</label>
+                @Html.TextBox("str", null, new { @class = "form-control" })
+                <input type="submit" class="btn btn-primary" value="Search" />
+            </div>
+        }
+        @if (ViewBag.result != null)
+        {
+            if (ViewBag.result.Response == "True")
+            {
+                <div class="row text-center display-flex">
+
+                    @foreach (var movie in ViewBag.result.Search)
+                    {
+
+                        <div class="col-xs-6 col-md-4 col-lg-3 posters">
+                            <a href="@Url.Action("Details",new {movieId = @movie.imdbID})" class="details-href">
+                                <div class="thumbnail">
+                                    <img class="img-thumbnail" src="@movie.Poster" onerror="this.src='/Content/notfound.png'" />
+                                    <div class="caption">
+                                        <b>@movie.Title ( @movie.Year )</b>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+
+        }
+    </div>
+</body>
+</html>
